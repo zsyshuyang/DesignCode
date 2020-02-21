@@ -10,7 +10,8 @@ import SwiftUI
 
 struct CourseList: View {
      @State var courses = courseData
-     @State var active = false
+     @State var active = false     // 用于隐藏状态栏
+     @State var activeIndex = -1  // 用于处理卡片被点击时，另外两张的效果
     
     var body: some View {
         ZStack {
@@ -30,9 +31,20 @@ struct CourseList: View {
                     // course.indices, id: \.self ??？
                     ForEach(courses.indices, id: \.self) { index in
                         GeometryReader { geometry in
-                            CourseView(show: self.$courses[index].show, course: self.courses[index], active: self.$active)
+                            CourseView(
+                                show: self.$courses[index].show,
+                                course: self.courses[index],
+                                active: self.$active,
+                                index: index,
+                                activeIndex: self.$activeIndex
+                            )
                                 // -geometry.frame(in: .global).minY ???
                                 .offset(y: self.courses[index].show ? -geometry.frame(in: .global).minY : 0)
+                                
+                                // 当一张卡片被点击，另外两张的效果
+                                .opacity(self.activeIndex != index && self.active ? 0 : 1)
+                                .scaleEffect(self.activeIndex != index && self.active ? 0.5 : 1)
+                                .offset(x: self.activeIndex != index && self.active ? screen.width : 0)
                         }
                         .frame(height: 280)
                         .frame(maxWidth: self.courses[index].show ? .infinity : screen.width - 60)
@@ -59,6 +71,8 @@ struct CourseView: View {
     @Binding var show: Bool
     var course: Course
     @Binding var active: Bool
+    var index: Int
+    @Binding var activeIndex: Int
     
     var body: some View {
         ZStack (alignment: .top){
@@ -124,6 +138,11 @@ struct CourseView: View {
             .onTapGesture {
                 self.show.toggle()
                 self.active.toggle()
+                if self.show {
+                    self.activeIndex = self.index
+                } else {
+                    self.activeIndex = -1
+                }
             }
         }
         .frame(height: show ? screen.height: 280)
