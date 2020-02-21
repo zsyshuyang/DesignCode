@@ -12,10 +12,13 @@ struct CourseList: View {
      @State var courses = courseData
      @State var active = false     // 用于隐藏状态栏
      @State var activeIndex = -1  // 用于处理卡片被点击时，另外两张的效果
+     @State var activeView = CGSize.zero
     
     var body: some View {
         ZStack {
-            Color.black.opacity(active ? 0.5 : 0)
+            // 背景
+            Color.black.opacity(Double(self.activeView.height / 500))
+                .animation(.linear)
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {
@@ -36,7 +39,8 @@ struct CourseList: View {
                                 course: self.courses[index],
                                 active: self.$active,
                                 index: index,
-                                activeIndex: self.$activeIndex
+                                activeIndex: self.$activeIndex,
+                                activeView: self.$activeView
                             )
                                 // -geometry.frame(in: .global).minY ???
                                 .offset(y: self.courses[index].show ? -geometry.frame(in: .global).minY : 0)
@@ -56,8 +60,7 @@ struct CourseList: View {
             } // ScrollView End
                 .statusBar(hidden: active ? true : false)
                 .animation(.linear)
-        }
-        
+        } // ZStack End
     }
 }
 
@@ -73,6 +76,7 @@ struct CourseView: View {
     @Binding var active: Bool
     var index: Int
     @Binding var activeIndex: Int
+    @Binding var activeView: CGSize
     
     var body: some View {
         ZStack (alignment: .top){
@@ -135,6 +139,27 @@ struct CourseView: View {
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .shadow(color: Color(course.color).opacity(0.3), radius: 20, x: 0, y: 20)
             
+            .gesture(
+                show ?  // 点击卡片显示内容，才会有拖拽效果
+                DragGesture().onChanged { value in
+                    // 限定拖拽高度
+                    guard value.translation.height < 300 else { return }
+                    // 限定拖拽方向，只能向下
+                    guard value.translation.height > 0 else { return }
+                    self.activeView = value.translation
+                }
+                .onEnded { value in
+                    // 往下拖拽，松手返回Courses页面
+                    if self.activeView.height > 50 {
+                        self.show = false
+                        self.active = false
+                        self.activeIndex = -1
+                    }
+                    self.activeView = .zero
+                }
+                : nil
+            )
+
             .onTapGesture {
                 self.show.toggle()
                 self.active.toggle()
@@ -144,9 +169,38 @@ struct CourseView: View {
                     self.activeIndex = -1
                 }
             }
-        }
+        }  // ZStack End
+            
         .frame(height: show ? screen.height: 280)
+            
+        .scaleEffect(1 - self.activeView.height / 1000)
+        .rotation3DEffect(Angle(degrees: Double(self.activeView.height) / 10), axis: (x: 0, y: 10.0, z: 0))
+            
+        // 色彩过度动画
+        .hueRotation(Angle(degrees: Double(self.activeView.height)))
         .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+           
+        // 拖拽文字动画效果，和拖拽图片一致
+        .gesture(
+                  show ?  // 点击卡片显示内容，才会有拖拽效果
+                  DragGesture().onChanged { value in
+                      // 限定拖拽高度
+                      guard value.translation.height < 300 else { return }
+                      // 限定拖拽方向，只能向下
+                      guard value.translation.height > 0 else { return }
+                      self.activeView = value.translation
+                  }
+                  .onEnded { value in
+                      // 往下拖拽，松手返回Courses页面
+                      if self.activeView.height > 50 {
+                          self.show = false
+                          self.active = false
+                          self.activeIndex = -1
+                      }
+                      self.activeView = .zero
+                  }
+                  : nil
+        )
         .edgesIgnoringSafeArea(.all)
     }
 }
@@ -162,8 +216,8 @@ struct Course: Identifiable {
 }
 
 var courseData = [
-    Course(title: "Prototype Designs in SwiftUI", subtitle: "18 Sections", image: #imageLiteral(resourceName: "Card1"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), show: false),
-    Course(title: "SwiftUI Advanced", subtitle: "20 Sections", image: #imageLiteral(resourceName: "Card1"), logo: #imageLiteral(resourceName: "Logo2"), color: #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1), show: false),
+    Course(title: "Prototype Designs in SwiftUI", subtitle: "18 Sections", image: #imageLiteral(resourceName: "Background1"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), show: false),
+    Course(title: "SwiftUI Advanced", subtitle: "20 Sections", image: #imageLiteral(resourceName: "Card3"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1), show: false),
     Course(title: "UI Design for Developers", subtitle: "20 Sections",image: #imageLiteral(resourceName: "Card4"), logo: #imageLiteral(resourceName: "Logo3"), color: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), show: false)
 ]
 
