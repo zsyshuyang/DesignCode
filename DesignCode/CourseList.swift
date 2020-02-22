@@ -135,7 +135,7 @@ struct CourseView: View {
             .padding(.top, show ? 30 : 0)
     //        .frame(width: show ? screen.width : screen.width - 60, height: show ? screen.height : 280)
             .frame(maxWidth: show ? .infinity : screen.width - 60, maxHeight: show ? 460 : 280)
-                .background(Color(course.color))
+            .background(Color(course.color))
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .shadow(color: Color(course.color).opacity(0.3), radius: 20, x: 0, y: 20)
             
@@ -169,10 +169,18 @@ struct CourseView: View {
                     self.activeIndex = -1
                 }
             }
+            
+            // 让if语句生效、注释199行 self.activeView = value.translation
+            // 可实现内容页面SrocllView,拖拽脱出效果消失
+//            if show {
+//                CourseDetail(course: course, show: $show, active: $active, activeIndex: $activeIndex)
+//                    .background(Color.white)
+//                    .animation(nil)
+//            }
+            
         }  // ZStack End
             
         .frame(height: show ? screen.height: 280)
-            
         .scaleEffect(1 - self.activeView.height / 1000)
         .rotation3DEffect(Angle(degrees: Double(self.activeView.height) / 10), axis: (x: 0, y: 10.0, z: 0))
             
@@ -188,6 +196,7 @@ struct CourseView: View {
                       guard value.translation.height < 300 else { return }
                       // 限定拖拽方向，只能向下
                       guard value.translation.height > 0 else { return }
+                    
                       self.activeView = value.translation
                   }
                   .onEnded { value in

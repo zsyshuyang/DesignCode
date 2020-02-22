@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B33AB0823FC29A1000ABF60 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B33AB0723FC29A1000ABF60 /* Modifiers.swift */; };
 		3B33AB0A23FC33B9000ABF60 /* Work_Sans in Resources */ = {isa = PBXBuildFile; fileRef = 3B33AB0923FC33B8000ABF60 /* Work_Sans */; };
+		3B4663842401480B007BFA4A /* CourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4663832401480B007BFA4A /* CourseDetail.swift */; };
 		3B882D6723F9093C000855A5 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B882D6623F9093C000855A5 /* MenuView.swift */; };
 		3B882D6923F91A6C000855A5 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B882D6823F91A6B000855A5 /* Home.swift */; };
 		3B882D6B23F96593000855A5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B882D6A23F96593000855A5 /* HomeView.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		3B33AB0723FC29A1000ABF60 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		3B33AB0923FC33B8000ABF60 /* Work_Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Work_Sans; sourceTree = "<group>"; };
+		3B4663832401480B007BFA4A /* CourseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
 		3B882D6623F9093C000855A5 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		3B882D6823F91A6B000855A5 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3B882D6A23F96593000855A5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				3B882D6823F91A6B000855A5 /* Home.swift */,
 				3B882D6A23F96593000855A5 /* HomeView.swift */,
 				3BB6263323FD81FD00CE0EE3 /* CourseList.swift */,
+				3B4663832401480B007BFA4A /* CourseDetail.swift */,
 				3B882D6623F9093C000855A5 /* MenuView.swift */,
 				3B882D6C23F990AD000855A5 /* UpdateList.swift */,
 				3BBA7F0723FA90EF0062F098 /* UpdateDetail.swift */,
@@ -191,6 +194,7 @@
 				3B882D6B23F96593000855A5 /* HomeView.swift in Sources */,
 				3BB44F9E23F799520077BC0B /* SceneDelegate.swift in Sources */,
 				3BB44FA023F799520077BC0B /* ContentView.swift in Sources */,
+				3B4663842401480B007BFA4A /* CourseDetail.swift in Sources */,
 				3BBA7F0E23FAB6810062F098 /* TabBar.swift in Sources */,
 				3BB6263423FD81FD00CE0EE3 /* CourseList.swift in Sources */,
 			);
