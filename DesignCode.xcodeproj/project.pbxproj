@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		3B954D92240168B500233434 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B954D91240168B500233434 /* Data.swift */; };
 		3B954D9424016D1100233434 /* PostList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B954D9324016D1100233434 /* PostList.swift */; };
 		3B954D962401723E00233434 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B954D952401723E00233434 /* DataStore.swift */; };
+		3B954D9924017C2A00233434 /* Contentful in Frameworks */ = {isa = PBXBuildFile; productRef = 3B954D9824017C2A00233434 /* Contentful */; };
+		3B954D9B2401831700233434 /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B954D9A2401831700233434 /* CourseStore.swift */; };
 		3BB44F9C23F799520077BC0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB44F9B23F799520077BC0B /* AppDelegate.swift */; };
 		3BB44F9E23F799520077BC0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB44F9D23F799520077BC0B /* SceneDelegate.swift */; };
 		3BB44FA023F799520077BC0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB44F9F23F799520077BC0B /* ContentView.swift */; };
@@ -41,6 +43,7 @@
 		3B954D91240168B500233434 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		3B954D9324016D1100233434 /* PostList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostList.swift; sourceTree = "<group>"; };
 		3B954D952401723E00233434 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		3B954D9A2401831700233434 /* CourseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
 		3BB44F9823F799520077BC0B /* DesignCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BB44F9B23F799520077BC0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BB44F9D23F799520077BC0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B954D9924017C2A00233434 /* Contentful in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +98,7 @@
 				3B882D6823F91A6B000855A5 /* Home.swift */,
 				3B882D6A23F96593000855A5 /* HomeView.swift */,
 				3BB6263323FD81FD00CE0EE3 /* CourseList.swift */,
+				3B954D9A2401831700233434 /* CourseStore.swift */,
 				3B4663832401480B007BFA4A /* CourseDetail.swift */,
 				3B882D6623F9093C000855A5 /* MenuView.swift */,
 				3B882D6C23F990AD000855A5 /* UpdateList.swift */,
@@ -136,6 +141,9 @@
 			dependencies = (
 			);
 			name = DesignCode;
+			packageProductDependencies = (
+				3B954D9824017C2A00233434 /* Contentful */,
+			);
 			productName = DesignCode;
 			productReference = 3BB44F9823F799520077BC0B /* DesignCode.app */;
 			productType = "com.apple.product-type.application";
@@ -164,6 +172,9 @@
 				Base,
 			);
 			mainGroup = 3BB44F8F23F799520077BC0B;
+			packageReferences = (
+				3B954D9724017C2A00233434 /* XCRemoteSwiftPackageReference "contentful.swift" */,
+			);
 			productRefGroup = 3BB44F9923F799520077BC0B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -192,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B954D9B2401831700233434 /* CourseStore.swift in Sources */,
 				3BB44F9C23F799520077BC0B /* AppDelegate.swift in Sources */,
 				3B954D92240168B500233434 /* Data.swift in Sources */,
 				3B954D962401723E00233434 /* DataStore.swift in Sources */,
@@ -402,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B954D9724017C2A00233434 /* XCRemoteSwiftPackageReference "contentful.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/contentful/contentful.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B954D9824017C2A00233434 /* Contentful */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B954D9724017C2A00233434 /* XCRemoteSwiftPackageReference "contentful.swift" */;
+			productName = Contentful;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3BB44F9023F799520077BC0B /* Project object */;
 }
