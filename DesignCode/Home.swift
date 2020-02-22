@@ -62,7 +62,6 @@ struct Home: View {
             
             if showContent {
                 Color.white.edgesIgnoringSafeArea(.all) // 设置白色背景，以免重叠
-                
                 ContentView()
                 
                 // 关闭按钮
