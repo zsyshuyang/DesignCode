@@ -1,11 +1,10 @@
-# Build a SwiftUI app for iOS 13
- (用SwiftUI构建完整应用)
+# Build a SwiftUI app for iOS 13 (用SwiftUI构建完整应用)
 
 Learning about ios&SwiftUI at first, I'm following Meng to's video tutorial.
 Thanks to Meng to for such a good video tutorial.
 
-初学ios&SwiftUI开发，正在跟着Meng to的视频教程学着。
-感谢Meng to出了这么好的视频教程。
+（初学ios&SwiftUI开发，正在跟着Meng to的视频教程学着。
+感谢Meng to出了这么好的视频教程。）
 
 ## The Course Catalog（课程目录）：
   1. Learn SwiftUI for iOS 13（使用SwiftUI构建一个iOS应用）
