@@ -1,5 +1,5 @@
 # Build a SwiftUI app for iOS 13
-## (用SwiftUI构建完整应用)
+ (用SwiftUI构建完整应用)
 
 Learning about ios&SwiftUI at first, I'm following Meng to's video tutorial.
 Thanks to Meng to for such a good video tutorial.
@@ -7,7 +7,7 @@ Thanks to Meng to for such a good video tutorial.
 初学ios&SwiftUI开发，正在跟着Meng to的视频教程学着。
 感谢Meng to出了这么好的视频教程。
 
-## The course catalog（课程目录）：
+## The Course Catalog（课程目录）：
   1. Learn SwiftUI for iOS 13（使用SwiftUI构建一个iOS应用）
   2. Layout and Stacks（布局和堆栈）
   3. Components and Visual Effects（组件和视觉效果）
@@ -43,4 +43,4 @@ Thanks to Meng to for such a good video tutorial.
   33. Dynamic New View（动态创建新视图）
   34. API and JSON（API和JSON）
   35. API and Combine（API和Combine）
-  36.SMP and Contentful（SMP和Contentful）
+  36. SMP and Contentful（SMP和Contentful）
