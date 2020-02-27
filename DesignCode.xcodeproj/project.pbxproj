@@ -31,6 +31,7 @@
 		3BBA7F0E23FAB6810062F098 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA7F0D23FAB6800062F098 /* TabBar.swift */; };
 		3BBA7F1023FAC5B10062F098 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA7F0F23FAC5B10062F098 /* RingView.swift */; };
 		3BE0D2CF2407973100138507 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3BE0D2CE2407973100138507 /* SDWebImageSwiftUI */; };
+		3BE0D2D52407D82800138507 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0D2D42407D82800138507 /* BlurView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		3BBA7F0923FA984A0062F098 /* UpdateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStore.swift; sourceTree = "<group>"; };
 		3BBA7F0D23FAB6800062F098 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		3BBA7F0F23FAC5B10062F098 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		3BE0D2D42407D82800138507 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				3B954D952401723E00233434 /* DataStore.swift */,
 				3B954D9324016D1100233434 /* PostList.swift */,
 				3BBA7F0D23FAB6800062F098 /* TabBar.swift */,
+				3BE0D2D42407D82800138507 /* BlurView.swift */,
 				3BB44FA123F799550077BC0B /* Assets.xcassets */,
 				3B33AB0923FC33B8000ABF60 /* Work_Sans */,
 				3BB44FA623F799550077BC0B /* LaunchScreen.storyboard */,
@@ -223,6 +226,7 @@
 				3B954D9424016D1100233434 /* PostList.swift in Sources */,
 				3BB44FA023F799520077BC0B /* ContentView.swift in Sources */,
 				3B4663842401480B007BFA4A /* CourseDetail.swift in Sources */,
+				3BE0D2D52407D82800138507 /* BlurView.swift in Sources */,
 				3BBA7F0E23FAB6810062F098 /* TabBar.swift in Sources */,
 				3BB6263423FD81FD00CE0EE3 /* CourseList.swift in Sources */,
 			);
