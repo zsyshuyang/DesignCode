@@ -15,7 +15,7 @@ struct Home: View {
     
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)) 
+            Color("background2")
                 .edgesIgnoringSafeArea(.all)
             
             HomeView(showProfile: $showProfile, showContent: $showContent)
@@ -24,12 +24,12 @@ struct Home: View {
                 .background(
                     // 上面高度为200的背景色渐变
                     VStack {
-                        LinearGradient(gradient: Gradient(colors: [Color("background2"), Color.white]), startPoint: .top, endPoint: .bottom)
+                        LinearGradient(gradient: Gradient(colors: [Color("background2"), Color("background1")]), startPoint: .top, endPoint: .bottom)
                             .frame(height: 200)
                         Spacer()
                     }
-                    // 其余部分白色背景
-                    .background(Color.white)
+                    // 设置其余背景色
+                    .background(Color("background1"))
                 )
                 
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
@@ -61,7 +61,7 @@ struct Home: View {
             )
             
             if showContent {
-                Color.white.edgesIgnoringSafeArea(.all) // 设置白色背景，以免重叠
+                BlurView(style: .systemMaterial).edgesIgnoringSafeArea(.all)
                 ContentView()
                 
                 // 关闭按钮
@@ -90,6 +90,9 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
+            .environment(\.colorScheme, .dark) // 预览深色模式
+            .environment(\.sizeCategory, .extraExtraLarge)  // 尝试显示所有动态类型为超大的字体
+        
     }
 }
 

@@ -31,7 +31,8 @@ struct TabBar: View {
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        // 自定义预览设备,选中previewDevice，option键+鼠标右击，可以查看所有设备列表
+        // 自定义预览设备,选中previewDevice，
+        // option键+鼠标右击，可以查看所有设备列表
         Group {
             //TabBar().previewDevice("iPhone 8")
             TabBar().previewDevice("iPhone 11")

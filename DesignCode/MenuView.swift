@@ -34,7 +34,8 @@ struct MenuView: View {
             }
             .frame(maxWidth: .infinity) // 设置最大宽度：无限大
             .frame(height: 300)
-            .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)), Color(#colorLiteral(red: 0.8705882353, green: 0.8941176471, blue: 0.9450980392, alpha: 1))]), startPoint: .top, endPoint: .bottom)) // 渐变背景色
+            .background(BlurView(style: .systemMaterial))
+//            .background(LinearGradient(gradient: Gradient(colors: [Color("background3"), Color("background3").opacity(0.6)]), startPoint: .top, endPoint: .bottom)) // 渐变背景色
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20) // 自定义阴影
             .padding(.horizontal, 30)
