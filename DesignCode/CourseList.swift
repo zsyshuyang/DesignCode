@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CourseList: View {
-     @State var courses = courseData
+     @ObservedObject var store = CourseStore()
      @State var active = false     // 用于隐藏状态栏
      @State var activeIndex = -1  // 用于处理卡片被点击时，另外两张的效果
      @State var activeView = CGSize.zero
@@ -20,9 +20,6 @@ struct CourseList: View {
             Color.black.opacity(Double(self.activeView.height / 500))
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)
-                .onAppear{
-                    getArray()
-            }
             
             ScrollView {
                 VStack(spacing: 30.0) {
@@ -35,18 +32,18 @@ struct CourseList: View {
                         .blur(radius: active ? 20 : 0)
                     
                     // course.indices, id: \.self ??？
-                    ForEach(courses.indices, id: \.self) { index in
+                    ForEach(store.courses.indices, id: \.self) { index in
                         GeometryReader { geometry in
                             CourseView(
-                                show: self.$courses[index].show,
-                                course: self.courses[index],
+                                show: self.$store.courses[index].show,
+                                course: self.store.courses[index],
                                 active: self.$active,
                                 index: index,
                                 activeIndex: self.$activeIndex,
                                 activeView: self.$activeView
                             )
                                 // -geometry.frame(in: .global).minY ???
-                                .offset(y: self.courses[index].show ? -geometry.frame(in: .global).minY : 0)
+                                .offset(y: self.store.courses[index].show ? -geometry.frame(in: .global).minY : 0)
                                 
                                 // 当一张卡片被点击，另外两张的效果
                                 .opacity(self.activeIndex != index && self.active ? 0 : 1)
@@ -54,8 +51,8 @@ struct CourseList: View {
                                 .offset(x: self.activeIndex != index && self.active ? screen.width : 0)
                         }
                         .frame(height: 280)
-                        .frame(maxWidth: self.courses[index].show ? .infinity : screen.width - 60)
-                        .zIndex(self.courses[index].show ? 1 : 0)
+                        .frame(maxWidth: self.store.courses[index].show ? .infinity : screen.width - 60)
+                        .zIndex(self.store.courses[index].show ? 1 : 0)
                     }
                 }
                 .frame(width: screen.width)
@@ -230,7 +227,7 @@ struct Course: Identifiable {
 var courseData = [
     Course(title: "Prototype Designs in SwiftUI", subtitle: "18 Sections", image: #imageLiteral(resourceName: "Background1"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), show: false),
     Course(title: "SwiftUI Advanced", subtitle: "20 Sections", image: #imageLiteral(resourceName: "Card3"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1), show: false),
-    Course(title: "UI Design for Developers", subtitle: "20 Sections",image: #imageLiteral(resourceName: "Card4"), logo: #imageLiteral(resourceName: "Logo3"), color: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), show: false)
+    Course(title: "UI Design for Developers", subtitle: "20 Sections", image: #imageLiteral(resourceName: "Card4"), logo: #imageLiteral(resourceName: "Logo3"), color: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), show: false)
 ]
 
 

@@ -30,6 +30,7 @@
 		3BBA7F0A23FA984A0062F098 /* UpdateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA7F0923FA984A0062F098 /* UpdateStore.swift */; };
 		3BBA7F0E23FAB6810062F098 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA7F0D23FAB6800062F098 /* TabBar.swift */; };
 		3BBA7F1023FAC5B10062F098 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA7F0F23FAC5B10062F098 /* RingView.swift */; };
+		3BE0D2CF2407973100138507 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3BE0D2CE2407973100138507 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE0D2CF2407973100138507 /* SDWebImageSwiftUI in Frameworks */,
 				3B954D9924017C2A00233434 /* Contentful in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +145,7 @@
 			name = DesignCode;
 			packageProductDependencies = (
 				3B954D9824017C2A00233434 /* Contentful */,
+				3BE0D2CE2407973100138507 /* SDWebImageSwiftUI */,
 			);
 			productName = DesignCode;
 			productReference = 3BB44F9823F799520077BC0B /* DesignCode.app */;
@@ -174,6 +177,7 @@
 			mainGroup = 3BB44F8F23F799520077BC0B;
 			packageReferences = (
 				3B954D9724017C2A00233434 /* XCRemoteSwiftPackageReference "contentful.swift" */,
+				3BE0D2CD2407973100138507 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 3BB44F9923F799520077BC0B /* Products */;
 			projectDirPath = "";
@@ -424,6 +428,14 @@
 				minimumVersion = 5.0.7;
 			};
 		};
+		3BE0D2CD2407973100138507 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -431,6 +443,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B954D9724017C2A00233434 /* XCRemoteSwiftPackageReference "contentful.swift" */;
 			productName = Contentful;
+		};
+		3BE0D2CE2407973100138507 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BE0D2CD2407973100138507 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
